@@ -1,0 +1,110 @@
+{
+    "input_file": "dataset\\raw\\balanced_large_congestion_dataset.csv",
+    "raw_dataset_shape": [
+        77487,
+        23
+    ],
+    "window_size": 20,
+    "gap_threshold": 5.0,
+    "random_state": 42,
+    "split_method": "weighted complete-segment split before sequence generation",
+    "requested_split_ratios": {
+        "train": 0.7,
+        "validation": 0.1,
+        "test": 0.2
+    },
+    "actual_sequence_ratios": {
+        "train": 0.7001010101010101,
+        "validation": 0.10008658008658008,
+        "test": 0.1998124098124098
+    },
+    "normalization": "MinMaxScaler fitted on training sequences only",
+    "flow_density_scale_source": "maximum flow_count in training split",
+    "flow_count_training_max": 15.0,
+    "input_features": 24,
+    "feature_columns": [
+        "packet_count",
+        "byte_count",
+        "throughput",
+        "packet_rate",
+        "avg_pkt_size",
+        "max_pkt_size",
+        "min_pkt_size",
+        "std_pkt_size",
+        "flow_count",
+        "unique_src_ips",
+        "unique_dst_ips",
+        "tcp_packets",
+        "udp_packets",
+        "tcp_ratio",
+        "udp_ratio",
+        "avg_ttl",
+        "max_ttl",
+        "min_ttl",
+        "utilization",
+        "delay",
+        "packet_loss",
+        "throughput_change_rate",
+        "utilization_gradient",
+        "flow_density"
+    ],
+    "num_classes": 3,
+    "total_sequences": 69300,
+    "X_train_shape": [
+        48517,
+        20,
+        24
+    ],
+    "X_val_shape": [
+        6936,
+        20,
+        24
+    ],
+    "X_test_shape": [
+        13847,
+        20,
+        24
+    ],
+    "y_train_shape": [
+        48517
+    ],
+    "y_val_shape": [
+        6936
+    ],
+    "y_test_shape": [
+        13847
+    ],
+    "class_distribution": {
+        "train": {
+            "0": 16390,
+            "1": 16060,
+            "2": 16067
+        },
+        "validation": {
+            "0": 2349,
+            "1": 2294,
+            "2": 2293
+        },
+        "test": {
+            "0": 4677,
+            "1": 4583,
+            "2": 4587
+        }
+    },
+    "leakage_verification": {
+        "train_val_overlap": 69,
+        "train_test_overlap": 106,
+        "val_test_overlap": 29,
+        "train_unique_hashes": 48232,
+        "val_unique_hashes": 6923,
+        "test_unique_hashes": 13804,
+        "train_internal_duplicates": 285,
+        "val_internal_duplicates": 13,
+        "test_internal_duplicates": 43
+    },
+    "class_labels": {
+        "0": "Normal Traffic",
+        "1": "Moderate Congestion",
+        "2": "Heavy Congestion"
+    }
+}
